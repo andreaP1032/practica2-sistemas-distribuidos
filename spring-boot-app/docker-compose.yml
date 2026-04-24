@@ -36,7 +36,7 @@ services:
     depends_on:
       - mysqldb
     build: ./
-    restart: on-failure
+    restart:  "no" #on-failure
     env_file: ./.env
 
     ports:
@@ -46,8 +46,10 @@ services:
       - SPRING-DATASOURCE-USERNAME=$MYSQLDB_USER_DES
       - SPRING-DATASOURCE-PASSWORD=$MYSQLDB_ROOT_PASSWORD_DES
       - SPRING-DATASOURCE-DRIVER-CLASS-NAME=$SPRING-DATASOURCE-DRIVER-CLASS-NAME_DES
-      - SPRING-JPA-HIBERNATE-DLL-AUTO=$SPRING-JPA-HIBERNATE-DLL-AUT_DES
-      - SPRING-JPA-HIBERNATE-DDL-AUTO=$SPRING-JPA-HIBERNATE-DDL-AUTO_DES
+      - SPRING-DATASOURCE-DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver
+      #- SPRING-JPA-HIBERNATE-DLL-AUTO=$SPRING-JPA-HIBERNATE-DLL-AUT_DES
+      #- SPRING-JPA-HIBERNATE-DDL-AUTO=$SPRING-JPA-HIBERNATE-DDL-AUTO_DES
+      - SPRING-JPA-HIBERNATE-DDL-AUTO=update
       - SPRING-JPA-SHOW-SQL=false
       - SERVER-PORT=$SPRING_DOCKER_PORT_DES
       - SPRING-DATASOURCE-URL=jdbc:mysql://mysqldb:$MYSQLDB_DOCKER_PORT_DES/$MYSQLDB_DATABASE_DES?useSSL=false&allowPublicKeyRetrieval=true
@@ -56,7 +58,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - .m2:/root/.m2
+      #- .m2:/root/.m2
       - type: bind
         source: ./certificates
         target: /certificates

@@ -38,5 +38,15 @@ public class User implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Role userRole;
+    public String getUsername() {
+        return username;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public Role getUserRole() {
+        return userRole;
+    }
 }

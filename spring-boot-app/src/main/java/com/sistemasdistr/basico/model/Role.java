@@ -25,6 +25,8 @@ public class Role implements Serializable {
 
     @Column(nullable = false)
     private Integer showOnCreate;
-
+    public String getRoleName() {
+        return roleName;
+    }
 
 }
