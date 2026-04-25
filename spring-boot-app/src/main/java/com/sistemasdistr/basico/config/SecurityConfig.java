@@ -33,7 +33,7 @@ public class SecurityConfig {
     public UserDetailsService users() {
         UserDetails user = User
             .withUsername("admin")
-            .password("{noop}1234")
+            .password(passwordEncoder().encode("1234"))
             .roles("USER")
             .build();
 
