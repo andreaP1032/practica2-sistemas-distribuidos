@@ -14,6 +14,7 @@ Spring Boot consume la API Flask para simular respuestas correctas y distintos e
 
 Ejecución
 docker compose up --build
+
 Acceso:
 http://localhost:7001
 
@@ -25,16 +26,20 @@ Endpoints
 /test/file-error → error de fichero
 /test/db-error → error de base de datos
 /test/pokemon-error → error API externa
+Estos errores son generados por la API Flask y consumidos por Spring Boot.
+
+Simulación
+Se ha implementado una API en Flask que actúa como sistemo externo, generando respuestas controladas(éxito y errores) para validar el manejo de exceptiones en la aplicación Spring Boot.
 
 Capturas
-Docker:
-Spring Boot:
-Login:
-OK:
-File Error:
-DB Error:
-API Error:
-Flask:
+Docker: contenedores en ejecución
+Spring Boot:arranque correcto
+Login: formulario de autenticación "admin"/1234
+OK:respuesta correcta
+File Error:error de fichero
+DB Error:error de base de datos
+API Error: error externo
+Flask: ejecución del servidor
 
 Autor
 Andrea P 1032
