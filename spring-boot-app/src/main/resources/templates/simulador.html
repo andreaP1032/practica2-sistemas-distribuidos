@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador API Flask</title>
+</head>
+<body>
+
+<h1>Simulador de invocaciones a API Python</h1>
+
+<p>Desde esta pantalla se prueban distintas respuestas generadas por la API Flask.</p>
+
+<form action="/test/ok" method="get">
+    <button type="submit">Probar respuesta correcta</button>
+</form>
+
+<br>
+
+<form action="/test/file-error" method="get">
+    <button type="submit">Simular error de fichero</button>
+</form>
+
+<br>
+
+<form action="/test/db-error" method="get">
+    <button type="submit">Simular error de base de datos</button>
+</form>
+
+<br>
+
+<form action="/test/pokemon-error" method="get">
+    <button type="submit">Simular error API externa</button>
+</form>
+
+<br>
+<a href="/">Volver a inicio</a>
+
+</body>
+</html>

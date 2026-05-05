@@ -82,12 +82,14 @@ public class SecurityConfig {
                         .requestMatchers("/").permitAll()
                         //permite acceso publico a rutas de autenticación
                         .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/simulador").permitAll()
                         //permite acceso a los endpoints de prueba (simulación Flask)
                         .requestMatchers("/test/**").permitAll()
                         //Restringe acceso a rutas de usuarios solo a rol ADMIN
                         .requestMatchers("/users/**").hasRole("ADMIN")
                         //Cualquier otra petición requiere autenticación
                         .anyRequest().authenticated()
+                        
                 )
                 //Configuración del formulario de login por defecto
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)

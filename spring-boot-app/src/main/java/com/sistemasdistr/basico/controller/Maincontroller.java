@@ -30,4 +30,9 @@ public class Maincontroller {
     public String testApi(@PathVariable String type) {
         return flaskApiService.callApi(type);
     }
+    // Endpoint que devuelve la pantalla visual del simulador
+    @GetMapping("/simulador")
+    public String simulador() {
+        return "simulador";
+    }
 }
